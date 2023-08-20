@@ -63,8 +63,12 @@ install_xrayr_docker() {
 }
 
 copy_config_to_home() {
+    if [ -d ~/config.yml ]; then
+        rm -r ~/config.yml
+    fi
     cp /etc/XrayR/config.yml ~/
 }
+
 
 main() {
     detect_os
